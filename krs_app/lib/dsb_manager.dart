@@ -1,5 +1,15 @@
 import 'package:dsbuntis/dsbuntis.dart';
 
+//Klasse -> affectedClass
+//Stunde -> lesson
+//Fach -> subTeacher
+//Raum -> subject
+//Art -> orgTeacher
+//Informationen -> notes
+//(Fach) ->
+
+
+
 class DSBManager {
   static const String _username = '152321';
   static const String _password = 'krsmrz21';
@@ -10,9 +20,7 @@ class DSBManager {
 
   Future<List<Plan>> getTimeTable() async {
     final session = Session(await _token);
-    print(await getSessionToken());
     final ttJson = await session.getTimetableJson();
-    print("$ttJson");
     final dp = session.downloadPlans(ttJson);
     List<Plan> finishedPlan = <Plan>[];
     PlanParser parser = Substitution.fromUntis;
